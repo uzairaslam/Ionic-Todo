@@ -1,34 +1,23 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Todo
     </ion-title>
+      <ion-buttons end>
+        <button ion-button (click)="addTodoAlert()">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
   <ion-list>
-    <ion-item-sliding>
-        <ion-item>Item 1</ion-item>
+    <ion-item-sliding *ngFor="let todo of toDos">
+        <ion-item>{{todo}}</ion-item>
         <ion-item-options side="right">
-          <button ion-button color="danger">
-              <ion-icon name="trash"></ion-icon>
-          </button>
-        </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding>
-        <ion-item>Item 2</ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="danger">
-              <ion-icon name="trash"></ion-icon>
-          </button>
-        </ion-item-options>
-    </ion-item-sliding>
-    <ion-item-sliding>
-        <ion-item>Item 3</ion-item>
-        <ion-item-options side="right">
-          <button ion-button color="danger">
+          <button ion-button color="danger" (click)="removeTodo(todo)">
               <ion-icon name="trash"></ion-icon>
           </button>
         </ion-item-options>
