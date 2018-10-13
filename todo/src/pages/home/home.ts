@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from 'ionic-angular';
+import { NavController, AlertController, reorderArray } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -7,6 +7,7 @@ import { NavController, AlertController } from 'ionic-angular';
 })
 export class HomePage {
  public toDos = [];
+ public reorderIsEnabled = false;
   constructor(public navCtrl: NavController, private alertCntrl: AlertController) {
 
   }
@@ -27,7 +28,7 @@ export class HomePage {
           role: "cancel"
         },
         {
-          text: "Add Role",
+          text: "Add Todo",
           handler: data => {
             let todoName;
             todoName = data.todoName;
@@ -44,5 +45,13 @@ export class HomePage {
     if(index !== -1) {
       this.toDos.splice(index, 1);
     }
+  }
+
+  toggleReorder() {
+    this.reorderIsEnabled = !this.reorderIsEnabled;
+  }
+
+  reorderItems($event) {
+    reorderArray(this.toDos, $event);
   }
 }
