@@ -25,7 +25,7 @@
     </ion-item-sliding>
   </ion-list>
   <ion-fab right bottom>
-    <button ion-fab [navPush]="archivedTodosPage">
+    <button ion-fab (click)="goToArchive()">
       <ion-icon name="archive"></ion-icon>
     </button>
   </ion-fab>

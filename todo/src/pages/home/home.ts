@@ -9,7 +9,6 @@ import { ArchivedTodosPage } from '../archived-todos/archived-todos';
 export class HomePage {
  public toDos = [];
  public reorderIsEnabled = false;
- public archivedTodosPage = ArchivedTodosPage;
 
   constructor(public navCtrl: NavController, private alertCntrl: AlertController) {
 
@@ -56,5 +55,9 @@ export class HomePage {
 
   reorderItems($event) {
     reorderArray(this.toDos, $event);
+  }
+
+  goToArchive() {
+    this.navCtrl.push(ArchivedTodosPage);
   }
 }
